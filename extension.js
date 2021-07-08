@@ -33,8 +33,15 @@ const MyPopup = GObject.registerClass(
 
 			let menuItem2 = new PopupMenu.PopupMenuItem('Kill processes on that port');
 			menuItem2.connect('activate', () => {
-				var [ok, out, err, exit] = GLib.spawn_command_line_sync('fuser -k '+entry.get_text()+'/tcp');
-				main.notify(_("Killing processes Done!"))
+				const text = entry.get_text();
+				let numberFromText = parseInt(text);
+				if(!isNaN(numberFromText)){
+					var [ok, out, err, exit] = GLib.spawn_command_line_sync('fuser -k '+entry.get_text()+'/tcp');
+					main.notify(_("Killing processes Done!"))
+				}
+				else {
+					main.notify(_("Provide valid number"))
+				}
 			})
 
 			this.menu.addMenuItem(menuItem);
