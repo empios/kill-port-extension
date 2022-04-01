@@ -2,7 +2,9 @@
 	"description": "Extension to easly kill all process on port",
 	"name": "Kill Port",
 	"shell-version": [
-		"3.38.5"
+		"3.38.5",
+		"3.40.0",
+		"3.42.0",
 	],
 	"url": "",
 	"uuid": "kill-port@empios.github.com",
